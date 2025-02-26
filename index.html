@@ -21,7 +21,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
             max-width: 500px;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         button {
             padding: 10px;
@@ -65,17 +65,24 @@
         }
         .chingonas-image {
             width: 100%;
-            max-width: 300px;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+        .result-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
             margin-top: 15px;
         }
-         .confetti {
+        .confetti {
             position: fixed;
             width: 10px;
             height: 10px;
             background-color: rgba(255, 0, 150, 0.7);
             opacity: 0.7;
             top: -10px;
-            animation: fall 6s linear infinite;
+            animation: fall 9s linear infinite;
         }
         @keyframes fall {
             0% { transform: translateY(0) rotate(0deg); }
@@ -85,16 +92,16 @@
 </head>
 <body>
     <div id="quiz-container">
-    	<img src="https://www.adrianagallardo.com/cdn/shop/files/Adriana-Gallardo-BLACK_200x@2x.png?v=1613501424" style="width: 35%">
-        <h2 id="question"></h2>
+        <img src="https://www.adrianagallardo.com/cdn/shop/files/Adriana-Gallardo-BLACK_200x@2x.png?v=1613501424" style="width: 30%">
+        <h3 id="question"></h3>
         <div id="answers"></div>
         <p id="progress"></p>
     </div>
     <script>
         const quiz = [
-            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme y sin descuidar mi imagen, no dejo que nada me derrumbe.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
+            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme, no dejo que nada me derrumbe, pero cuido mi imagen en el proceso.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
             { question: "2. Cuando alguien te critica o duda de ti, tú…", answers: ["A) Ignoro los comentarios y sigo trabajando en mis metas.", "B) Me molesta, pero me aseguro de demostrar con hechos que estoy por encima de eso.", "C) ¡Les doy un show! Me burlo de la situación y sigo siendo yo misma."] },
-            { question: "3. ¿Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
+            { question: "¿3. Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
             { question: "4. En una reunión social, tú eres la que…", answers: ["A) Habla de negocios, crecimiento y proyectos de éxito.", "B) Llega impactando, bien vestida, con porte y seguridad.", "C) Pone el ambiente, se ríe de todo y se roba la atención sin esfuerzo."] },
             { question: "5. ¿Qué es lo más importante en tu camino al éxito?", answers: ["A) La estrategia y la acción constante.", "B) La constancia y la disciplina para mantenerme en la cima.", "C) La autenticidad y el carisma para conectar con la gente."] },
             { question: "6. Cuando te miras al espejo, piensas…", answers: ["A) “Vamos por más, todavía hay mucho por hacer.”", "B) “Reina, te ves espectacular, que el mundo se prepare.”", "C) “Ay, mana, pero qué preciosa estás hoy.”"] },
@@ -105,12 +112,12 @@
         ];
         
         const results = [
-            { title: "🔥 LA CHINGONA IMPARABLE 🔥", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
-            { title: "✨ LA CHINGONA BOMBÓN ✨", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
-            { title: "👑 LA CHINGONA CHAVA FRESCA 👑", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable. " }
+            { title: "LA CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/adriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
+            { title: "LA CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/ninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
+            { title: "LA CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/wendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
         ];
         
-        let currentQuestion = 0;
+         let currentQuestion = 0;
         let score = [0, 0, 0];
         
         function loadQuestion() {
@@ -137,14 +144,18 @@
         function showResult() {
             const maxScore = Math.max(...score);
             const resultIndex = score.indexOf(maxScore);
-            document.getElementById("quiz-container").innerHTML =
-                <h2>${results[resultIndex].title}</h2>
-                <p class="result-text">${results[resultIndex].description}</p>
+            document.getElementById("quiz-container").innerHTML = `
+                    <div style="display: flex; align-items: center; text-align: left;">
+                    <img src="${results[resultIndex].image}" alt="Resultado" class="result-image" style="margin-right: 15px;">
+                    <div>
+                        <p class="result-text">${results[resultIndex].description}</p>
+                    </div>
+                </div>
                 <hr>
-                <p class="cta-text">Sé Chingona al siguiente nivel. Inscríbete a <strong>ChingonasCon</strong> ¡y seamos más chingonas que nunca!</p>
+                <h2 class="cta-text">Compra tu boleto, ¡y seamos más CHINGONAS que nunca!</h2>
                 <a href="https://chingonascon.com" target="_blank">
                     <img src="https://irp.cdn-website.com/15798f70/dms3rep/multi/CHINGONASCON+LANDING+CLIC+FUNNERS+BANNER+PRINCIPAL.png?dm-skip-opt=true" alt="ChingonasCon" class="chingonas-image">
-                    <button class="chingonas-button">IR A CHINGONASCON</button>
+                    <button class="chingonas-button">BOLETOS DESDE $57USD</button>
 
                 </a>
             `;
@@ -159,7 +170,7 @@
                 confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
                 confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
                 document.body.appendChild(confetti);
-                setTimeout(() => { confetti.remove(); }, 3000);
+                setTimeout(() => { confetti.remove(); }, 9000);
             }
         }
         
@@ -167,5 +178,3 @@
     </script>
 </body>
 </html>
-
-
