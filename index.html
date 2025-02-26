@@ -137,7 +137,7 @@
         function showResult() {
             const maxScore = Math.max(...score);
             const resultIndex = score.indexOf(maxScore);
-            document.getElementById("quiz-container").innerHTML = `
+            document.getElementById("quiz-container").innerHTML =
                 <h2>${results[resultIndex].title}</h2>
                 <p class="result-text">${results[resultIndex].description}</p>
                 <hr>
