@@ -7,7 +7,7 @@
     <style>
         body {
             overflow: auto;
-            padding-top: 20px;
+            padding-top: 5px;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -18,9 +18,9 @@
             text-align: center;
         }
         #quiz-container {
-            max-height: 90vh;
+            max-height: 95vh;
             overflow-y: auto;
-            margin-top: 20px;
+            margin-top: 10px;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -192,7 +192,7 @@
             const resultText = `Soy una ${results[resultIndex].title}! Descubre cuál eres tú con este test de Adriana Gallardo: `;
             const shareUrl = encodeURIComponent(window.location.href);
             const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(resultText)}%20${shareUrl}`;
-            const facebookUrl = `https://www.facebook.com/dialog/feed?app_id=YOUR_APP_ID&link=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
             const instagramImage = results[resultIndex].image;
             const instagramUrl = `https://www.instagram.com/stories/create/?file=${encodeURIComponent(instagramImage)}`;
             
