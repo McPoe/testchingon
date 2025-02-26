@@ -6,6 +6,8 @@
     <title>Test de Chingonas</title>
     <style>
         body {
+            overflow: auto;
+            padding-top: 20px;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -16,6 +18,9 @@
             text-align: center;
         }
         #quiz-container {
+            max-height: 90vh;
+            overflow-y: auto;
+            margin-top: 20px;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -187,7 +192,7 @@
             const resultText = `Soy una ${results[resultIndex].title}! Descubre cuál eres tú con este test de Adriana Gallardo: `;
             const shareUrl = encodeURIComponent(window.location.href);
             const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(resultText)}%20${shareUrl}`;
-            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
+            const facebookUrl = `https://www.facebook.com/dialog/feed?app_id=YOUR_APP_ID&link=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
             const instagramImage = results[resultIndex].image;
             const instagramUrl = `https://www.instagram.com/stories/create/?file=${encodeURIComponent(instagramImage)}`;
             
@@ -209,9 +214,11 @@
                 <p class="cta-text">Comparte tu resultado en redes sociales:</p>
                 <a href="${whatsappUrl}" target="_blank"><button class="social-buttona">WHATSAPP</button></a>
                 <a href="${facebookUrl}" target="_blank"><button class="social-buttonb">FACEBOOK</button></a>
-                <a href="https://www.instagram.com/" target="_blank"><button class="social-buttonc">INSTAGRAM</button></a>
+                <a id="download-image" href="#" download="Chingona_Resultado.png"><button class="social-buttonc">DESCARGAR IMAGEN</button></a>
+                <p class="cta-text">Descarga tu resultado y súbelo manualmente en tu historia de Instagram etiquetando a <strong>@adrianagallardo</strong> 🎉🔥</p>
             `;
             launchConfetti();
+            document.getElementById("download-image").href = results[resultIndex].image;
         }
         
         function launchConfetti() {
