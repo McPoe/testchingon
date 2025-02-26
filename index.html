@@ -70,7 +70,7 @@
         }
         .result-image {
             width: 150px;
-            height: 150px;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
             margin-top: 15px;
@@ -101,7 +101,7 @@
         const quiz = [
             { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme, no dejo que nada me derrumbe, pero cuido mi imagen en el proceso.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
             { question: "2. Cuando alguien te critica o duda de ti, tú…", answers: ["A) Ignoro los comentarios y sigo trabajando en mis metas.", "B) Me molesta, pero me aseguro de demostrar con hechos que estoy por encima de eso.", "C) ¡Les doy un show! Me burlo de la situación y sigo siendo yo misma."] },
-            { question: "¿3. Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
+            { question: "3. ¿Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
             { question: "4. En una reunión social, tú eres la que…", answers: ["A) Habla de negocios, crecimiento y proyectos de éxito.", "B) Llega impactando, bien vestida, con porte y seguridad.", "C) Pone el ambiente, se ríe de todo y se roba la atención sin esfuerzo."] },
             { question: "5. ¿Qué es lo más importante en tu camino al éxito?", answers: ["A) La estrategia y la acción constante.", "B) La constancia y la disciplina para mantenerme en la cima.", "C) La autenticidad y el carisma para conectar con la gente."] },
             { question: "6. Cuando te miras al espejo, piensas…", answers: ["A) “Vamos por más, todavía hay mucho por hacer.”", "B) “Reina, te ves espectacular, que el mundo se prepare.”", "C) “Ay, mana, pero qué preciosa estás hoy.”"] },
@@ -112,9 +112,9 @@
         ];
         
         const results = [
-            { title: "LA CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/adriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
-            { title: "LA CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/ninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
-            { title: "LA CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/wendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
+            { title: "LA CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/quizadriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
+            { title: "LA CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/quizninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
+            { title: "LA CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/quizwendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
         ];
         
          let currentQuestion = 0;
@@ -145,6 +145,7 @@
             const maxScore = Math.max(...score);
             const resultIndex = score.indexOf(maxScore);
             document.getElementById("quiz-container").innerHTML = `
+                    <h3 style="margin-bottom: 5px; color: #280189;">${results[resultIndex].title}</h3> 
                     <div style="display: flex; align-items: center; text-align: left;">
                     <img src="${results[resultIndex].image}" alt="Resultado" class="result-image" style="margin-right: 15px;">
                     <div>
