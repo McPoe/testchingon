@@ -36,6 +36,46 @@
         button:hover {
             background-color: #e91e63;
         }
+
+        .social-buttona {
+            background-color: #25D366;
+            color: white;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-size: .8em;
+            margin: 5px;
+        }
+        .social-buttona:hover {
+            background-color: #128C7E;
+        }
+
+        .social-buttonb {
+            background-color: #3b5998;
+            color: white;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-size: .8em;
+            margin: 5px;
+        }
+        .social-buttonb:hover {
+            background-color: #001855;
+        }
+
+        .social-buttonc {
+            background-color: #dd2a7b;
+            color: white;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-size: .8em;
+            margin: 5px;
+        }
+        .social-buttonc:hover {
+            background-color: #8134AF;
+        }
+        
         .chingonas-button {
             background-color: #6200ea;
             color: white;
@@ -99,7 +139,7 @@
     </div>
     <script>
         const quiz = [
-            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme, no dejo que nada me derrumbe, pero cuido mi imagen en el proceso.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
+            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme y cuido mi imagen, no dejo que nada me derrumbe.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
             { question: "2. Cuando alguien te critica o duda de ti, tú…", answers: ["A) Ignoro los comentarios y sigo trabajando en mis metas.", "B) Me molesta, pero me aseguro de demostrar con hechos que estoy por encima de eso.", "C) ¡Les doy un show! Me burlo de la situación y sigo siendo yo misma."] },
             { question: "3. ¿Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
             { question: "4. En una reunión social, tú eres la que…", answers: ["A) Habla de negocios, crecimiento y proyectos de éxito.", "B) Llega impactando, bien vestida, con porte y seguridad.", "C) Pone el ambiente, se ríe de todo y se roba la atención sin esfuerzo."] },
@@ -108,13 +148,13 @@
             { question: "7. ¿Si tu vida fuera una película, ¿cómo sería?", answers: ["A) Un documental de superación y éxito.", "B) Un drama de telenovela con final épico.", "C) Una comedia con momentos icónicos."] },
             { question: "8. ¿Qué frase te define mejor?", answers: ["A) “Si quieres resultados, deja de poner excusas y ponte a trabajar.”", "B) “Nunca dejes que nadie apague tu brillo, tú naciste para brillar.”", "C) “Yo no tengo competencia, yo soy un espectáculo aparte.”"] },
             { question: "9. ¿Cómo manejas el estrés o la presión?", answers: ["A) Me enfoco en soluciones y ejecuto un plan.", "B) Lo disimulo con elegancia, pero en privado me enfoco en recuperarme.", "C) Me río, hago un chiste de la situación y sigo adelante."] },
-            { question: "10. ¿Qué consejo le darías a otra mujer que quiere lograr sus sueños?", answers: ["A) “Deja de esperar el momento perfecto y empieza a actuar ya.”", "B) “No permitas que nada ni nadie te haga dudar de tu valor.”", "C) “Que se aviente sin miedo, con todo y el chisme.”"] },
+            { question: "10. ¿Qué consejo le darías a otra mujer que quiere lograr sus sueños?", answers: ["A) “Deja de esperar el momento perfecto y empieza a actuar ya.”", "B) “No permitas que nada ni nadie te haga dudar de tu valor.”", "C) “Aviéntate sin miedo, con todo y el chisme.”"] },
         ];
         
         const results = [
-            { title: "LA CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/quizadriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
-            { title: "LA CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/quizninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
-            { title: "LA CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/quizwendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
+            { title: "🔥CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/quizadriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
+            { title: "✨CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/quizninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
+            { title: "👑CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/quizwendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
         ];
         
          let currentQuestion = 0;
@@ -144,6 +184,13 @@
         function showResult() {
             const maxScore = Math.max(...score);
             const resultIndex = score.indexOf(maxScore);
+            const resultText = `Soy una ${results[resultIndex].title}! Descubre cuál eres tú con este test de Adriana Gallardo: `;
+            const shareUrl = encodeURIComponent(window.location.href);
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(resultText)}%20${shareUrl}`;
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
+            const instagramImage = results[resultIndex].image;
+            const instagramUrl = `https://www.instagram.com/stories/create/?file=${encodeURIComponent(instagramImage)}`;
+            
             document.getElementById("quiz-container").innerHTML = `
                     <h3 style="margin-bottom: 5px; color: #280189;">${results[resultIndex].title}</h3> 
                     <div style="display: flex; align-items: center; text-align: left;">
@@ -155,10 +202,14 @@
                 <hr>
                 <h2 class="cta-text">Compra tu boleto, ¡y seamos más CHINGONAS que nunca!</h2>
                 <a href="https://chingonascon.com" target="_blank">
-                    <img src="https://irp.cdn-website.com/15798f70/dms3rep/multi/CHINGONASCON+LANDING+CLIC+FUNNERS+BANNER+PRINCIPAL.png?dm-skip-opt=true" alt="ChingonasCon" class="chingonas-image">
+                    <img src="https://lirp.cdn-website.com/15798f70/dms3rep/multi/opt/AG_Chingonascon_Layered_1920x1080_New-1440w.jpg" alt="ChingonasCon" class="chingonas-image">
                     <button class="chingonas-button">BOLETOS DESDE $57USD</button>
-
                 </a>
+                <hr>
+                <p class="cta-text">Comparte tu resultado en redes sociales:</p>
+                <a href="${whatsappUrl}" target="_blank"><button class="social-buttona">WHATSAPP</button></a>
+                <a href="${facebookUrl}" target="_blank"><button class="social-buttonb">FACEBOOK</button></a>
+                <a href="https://www.instagram.com/" target="_blank"><button class="social-buttonc">INSTAGRAM</button></a>
             `;
             launchConfetti();
         }
