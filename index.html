@@ -85,14 +85,14 @@
 </head>
 <body>
     <div id="quiz-container">
-    	<img src="https://www.adrianagallardo.com/cdn/shop/files/Adriana-Gallardo-BLACK_200x@2x.png?v=1613501424" style="width: 40%">
+    	<img src="https://www.adrianagallardo.com/cdn/shop/files/Adriana-Gallardo-BLACK_200x@2x.png?v=1613501424" style="width: 35%">
         <h2 id="question"></h2>
         <div id="answers"></div>
         <p id="progress"></p>
     </div>
     <script>
         const quiz = [
-            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme, no dejo que nada me derrumbe, pero cuido mi imagen en el proceso.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
+            { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme y sin descuidar mi imagen, no dejo que nada me derrumbe.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
             { question: "2. Cuando alguien te critica o duda de ti, tú…", answers: ["A) Ignoro los comentarios y sigo trabajando en mis metas.", "B) Me molesta, pero me aseguro de demostrar con hechos que estoy por encima de eso.", "C) ¡Les doy un show! Me burlo de la situación y sigo siendo yo misma."] },
             { question: "3. ¿Cómo te describes en tres palabras?", answers: ["A) Fuerte, estratégica, determinada.", "B) Disciplinada, elegante, persistente.", "C) Divertida, auténtica, sin filtros."] },
             { question: "4. En una reunión social, tú eres la que…", answers: ["A) Habla de negocios, crecimiento y proyectos de éxito.", "B) Llega impactando, bien vestida, con porte y seguridad.", "C) Pone el ambiente, se ríe de todo y se roba la atención sin esfuerzo."] },
@@ -105,9 +105,9 @@
         ];
         
         const results = [
-            { title: "🔥 LA MÁS CHINGONA 🔥", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
+            { title: "🔥 LA CHINGONA IMPARABLE 🔥", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
             { title: "✨ LA CHINGONA BOMBÓN ✨", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
-            { title: "👑 LA CHINGONA NO-TAN PERDIDA 👑", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable. " }
+            { title: "👑 LA CHINGONA CHAVA FRESCA 👑", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable. " }
         ];
         
         let currentQuestion = 0;
