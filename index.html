@@ -121,6 +121,8 @@
             border-radius: 10px;
             margin-top: 15px;
         }
+
+
         .confetti {
             position: fixed;
             width: 10px;
@@ -143,6 +145,7 @@
         <div id="answers"></div>
         <p id="progress"></p>
     </div>
+
     <script>
         const quiz = [
             { question: "1. Cuando te enfrentas a un problema en tu vida o negocio, tu reacción es:", answers: ["A) Lo analizo, busco soluciones y tomo acción de inmediato.", "B) Me mantengo firme y cuido mi imagen, no dejo que nada me derrumbe.", "C) Me río, le echo desmadre y sigo adelante porque nada me derrumba."] },
@@ -156,72 +159,112 @@
             { question: "9. ¿Cómo manejas el estrés o la presión?", answers: ["A) Me enfoco en soluciones y ejecuto un plan.", "B) Lo disimulo con elegancia, pero en privado me enfoco en recuperarme.", "C) Me río, hago un chiste de la situación y sigo adelante."] },
             { question: "10. ¿Qué consejo le darías a otra mujer que quiere lograr sus sueños?", answers: ["A) “Deja de esperar el momento perfecto y empieza a actuar ya.”", "B) “No permitas que nada ni nadie te haga dudar de tu valor.”", "C) “Que se aviente sin miedo, con todo y el chisme.”"] },
         ];
-        
+
         const results = [
             { title: "🔥CHINGONA IMPARABLE 🔥", image: "https://mcpoe.github.io/testchingon/quizadriana.png", description: "<strong>Tú no viniste a intentarlo, viniste a lograrlo.</strong><br><br>Eres una estratega empoderada, con mentalidad de crecimiento y dispuesta a hacer lo que sea necesario para triunfar. No te detienes por nada ni por nadie, y tienes claro que el éxito es para las que toman acción." },
             { title: "✨CHINGONA BOMBÓN ✨", image: "https://mcpoe.github.io/testchingon/quizninel.png", description: "<strong>Tú no caminas… TÚ DESFILAS.</strong><br><br>Eres una diva disciplinada, una mujer que sabe lo que quiere y que trabaja todos los días para mantenerse firme en la cima. Tu combinación de fuerza, elegancia y perseverancia te hace imparable." },
             { title: "👑CHINGONA CHAVA FRESCA 👑", image: "https://mcpoe.github.io/testchingon/quizwendy.png", description: "<strong>Tú no encajas en moldes, tú los rompes.</strong><br><br>Eres una auténtica irreverente, sin filtros y con un carisma que ilumina cualquier lugar. Te ríes de la vida, enfrentas todo con humor y conectas con la gente porque tu esencia es única e inolvidable." }
         ];
-        
-         let currentQuestion = 0;
+
+        let currentQuestion = 0;
         let score = [0, 0, 0];
-        
+        let respuestasElegidas = []; // Almacena las respuestas del usuario
+
         function loadQuestion() {
             if (currentQuestion < quiz.length) {
                 document.getElementById("question").innerText = quiz[currentQuestion].question;
                 document.getElementById("answers").innerHTML = "";
                 document.getElementById("progress").innerText = `Pregunta ${currentQuestion + 1} de ${quiz.length}`;
-                
+
                 quiz[currentQuestion].answers.forEach((answer, index) => {
                     const btn = document.createElement("button");
                     btn.innerText = answer;
                     btn.onclick = () => {
                         score[index]++;
+                        respuestasElegidas.push(answer); // Almacena la respuesta elegida
                         currentQuestion++;
                         loadQuestion();
                     };
                     document.getElementById("answers").appendChild(btn);
                 });
             } else {
-                showResult();
+                showForm();
             }
         }
-        
-        function showResult() {
-            const maxScore = Math.max(...score);
-            const resultIndex = score.indexOf(maxScore);
-            const resultText = `Soy una ${results[resultIndex].title}! Descubre cuál eres tú con este test de Adriana Gallardo: `;
-            const shareUrl = encodeURIComponent(window.location.href);
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(resultText)}%20${shareUrl}`;
-            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${encodeURIComponent(resultText)}`;
-            const instagramImage = results[resultIndex].image;
-            const instagramUrl = `https://www.instagram.com/stories/create/?file=${encodeURIComponent(instagramImage)}`;
-            
+
+        function showForm() {
             document.getElementById("quiz-container").innerHTML = `
-                    <h3 style="margin-bottom: 5px; color: #280189;">${results[resultIndex].title}</h3> 
-                    <div style="display: flex; align-items: center; text-align: left;">
-                    <img src="${results[resultIndex].image}" alt="Resultado" class="result-image" style="margin-right: 15px;">
-                    <div>
-                        <p class="result-text">${results[resultIndex].description}</p>
-                    </div>
-                </div>
-                <hr>
-                <h2 class="cta-text">Compra tu boleto, ¡y seamos más CHINGONAS que nunca!</h2>
+                <h3 style="color: #280189";>¡Ya casi sabemos el tipo de chingona que eres!</h3>
+                <p>Déjanos tus datos para enviarte tu resultado por correo y recibir contenido exclusivo de Adriana Gallardo.</p>
+                <form id="chingonaForm">
+                    <input style="width: 80%; height: 33px" type="text" id="nombre" placeholder="Nombre y Apellido" required><br><br>
+                    <input style="width: 80%; height: 33px" type="email" id="correo" placeholder="Correo electrónico" required><br><br>
+                    <input style="width: 80%; height: 33px" type="tel" id="telefono" placeholder="Teléfono"><br><br>
+                    <label  style="font-size: 14px;">
+                        <input type="checkbox" id="acepto"> Acepto recibir información de próximos eventos de Adriana Gallardo.
+                    </label><br><br>
+                    <button type="button" onclick="enviarDatos()">Ver mi resultado</button>
+                </form>
+            `;
+        }
+
+        function enviarDatos() {
+            const nombre = document.getElementById("nombre").value;
+            const correo = document.getElementById("correo").value;
+            const telefono = document.getElementById("telefono").value;
+            const acepto = document.getElementById("acepto").checked ? "Sí" : "No";
+
+            if (!nombre || !correo || !document.getElementById("acepto").checked) {
+                alert("Completa todos los campos y acepta los términos.");
+                return;
+            }
+
+            const resultadoIndex = score.indexOf(Math.max(...score));
+            const resultadoFinal = results[resultadoIndex].title;
+
+            const data = {
+                nombre,
+                correo,
+                telefono,
+                acepto,
+                respuesta1: respuestasElegidas[0],
+                respuesta2: respuestasElegidas[1],
+                respuesta3: respuestasElegidas[2],
+                respuesta4: respuestasElegidas[3],
+                respuesta5: respuestasElegidas[4],
+                respuesta6: respuestasElegidas[5],
+                respuesta7: respuestasElegidas[6],
+                respuesta8: respuestasElegidas[7],
+                respuesta9: respuestasElegidas[8],
+                respuesta10: respuestasElegidas[9],
+                resultadoFinal
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbziq7mzxZLSU4nm-RH45QS5IWvb8f_FIRbGRp-0udMzPlrQus3oh5oGuFCRh_Bz1ude3A/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => showResult(resultadoIndex))
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar los datos. Por favor, inténtalo de nuevo.');
+            });
+        }
+
+        function showResult(resultIndex) {
+            document.getElementById("quiz-container").innerHTML = `
+                <h3>¡Eres una ${results[resultIndex].title}!</h3>
+                <img src="${results[resultIndex].image}" alt="Resultado" class="result-image">
+                <p>¡Gracias por participar! Revisa tu correo para recibir tu resultado completo.</p>
                 <a href="https://www.rompeelmiedoytriunfa.com/" target="_blank">
-                    <img src="https://lirp.cdn-website.com/15798f70/dms3rep/multi/opt/AG_Chingonascon_Layered_1920x1080_New-1440w.jpg" alt="ChingonasCon" class="chingonas-image">
-                    <button class="chingonas-button">BOLETOS DESDE $57USD</button>
+                    <button>Conoce los talleres de Adriana</button>
                 </a>
-                <hr>
-                <p class="cta-text">Comparte tu resultado en redes sociales:</p>
-                <a href="${whatsappUrl}" target="_blank"><button class="social-buttona">WHATSAPP</button></a>
-                <a href="${facebookUrl}" target="_blank"><button class="social-buttonb">FACEBOOK</button></a>
-                <a id="download-image" href="#" download="Chingona_Resultado.png"><button class="social-buttonc">DESCARGAR IMAGEN</button></a>
-                <p class="cta-text">Descarga tu resultado y súbelo en tu historia de Instagram etiquetando a <strong><a href="https://www.instagram.com/adrianagallardo/" target="_blank">@adrianagallardo</a></strong> 🎉🔥</p>
             `;
             launchConfetti();
-            document.getElementById("download-image").href = results[resultIndex].image;
         }
-        
+
         function launchConfetti() {
             for (let i = 0; i < 100; i++) {
                 let confetti = document.createElement("div");
@@ -233,7 +276,7 @@
                 setTimeout(() => { confetti.remove(); }, 9000);
             }
         }
-        
+
         loadQuestion();
     </script>
 </body>
